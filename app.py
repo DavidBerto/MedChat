@@ -3,12 +3,16 @@ import streamlit as st
 import numpy as np
 import openai
 from PIL import Image, ImageDraw
+import os
 
+load_dotenv()
+
+api_key = os.environ.get("OPENAI_API_KEY")
 st.title("Clínica Especializada em Traumatologia")
 
 #configuração de foto
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key=api_key)
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4o-mini"
